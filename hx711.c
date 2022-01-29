@@ -63,7 +63,7 @@ uint32_t hx711_measure(void)
     gpio_set_level(HX711_CLK_PIN, 1);
     hx711_usleep(1);
     uint32_t v = gpio_get_level(HX711_DAT_PIN);
-    weight += (v << (24-i));
+    weight += (v << (23-i));
     gpio_set_level(HX711_CLK_PIN, 0);
     hx711_usleep(1);
   }
