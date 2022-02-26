@@ -81,7 +81,7 @@ uint32_t hx711_measure(void)
   gpio_set_level(HX711_CLK_PIN, 0);
   portENABLE_INTERRUPTS();
 
-  return weight - zero_offset;
+  return (weight - zero_offset) & 0xffffff;
 }
 
 void hx711_set_zero_offset(uint32_t offset)
